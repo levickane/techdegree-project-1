@@ -31,7 +31,7 @@ var quotes = [
     quote: "Give me liberty or give me death",
     source: "Patrick Henry",
     citation: "Second Virginia Convention",
-    year: "1775"
+    year: "1775",
   }
 ];
 console.log(quotes)
@@ -40,21 +40,34 @@ console.log(quotes)
  * `getRandomQuote` function
 ***/
 function getRandomQuote(quotes){
-  var randomNumber = Math.floor (Math.random() * quotes.length);  
-  return randomNumber
+  var randomQuotes = quotes[Math.floor (Math.random() * quotes.length)];  
+  return randomQuotes
 };
 console.log(getRandomQuote(quotes));
 
 /***
  * `printQuote` function
 ***/
-let randomQuote = getRandomQuote(quotes);
-var html = `<p class="quote">${randomQuote.quote}</p>`;
-    html += `<p class="source">${randomQuote.source}</p>`;
 
-function printQuote(message){
-  document.getElementById('quote-box').innerHTML = html; 
-}
+
+
+ let randomQuote = getRandomQuote(quotes);
+ var print = `<p class='quote'>${randomQuote.quote}</p>`;
+     print +=   `<p class='source'>${randomQuote.source}`;
+                if (quotes.citation){
+     print +=     `<span class='citation'>${randomQuote.citaion}</span>`
+                };
+                if (quotes.year){
+     print +=     `<span class='year'>${randomQuote.year}</span>`
+                };
+                `</p>`;
+
+
+ function printQuote(message){
+   document.getElementById('quote-box').innerHTML = print; 
+ }
+
+
 
 /***
  * click event listener for the print quote button
