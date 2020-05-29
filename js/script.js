@@ -34,7 +34,7 @@ var quotes = [
     source: "Patrick Henry",
     citation: "Second Virginia Convention",
     year: "1775",
-  }
+  },
   {
     quote: "I'm never having hollindaise sauce ever again",
     source: "Mike Kane",
