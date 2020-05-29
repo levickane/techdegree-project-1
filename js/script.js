@@ -10,6 +10,8 @@ console.log('test');
 /*** 
  * `quotes` array 
 ***/
+//Below here I built an array of objects (a list of quotes) 
+//to be used in the random quote generator
 var quotes = [
   {
     quote: 'The greatest glory in living lies not in never falling, but in rising every time we fall.',
@@ -34,39 +36,51 @@ var quotes = [
     year: "1775",
   }
 ];
+//I loged this quotes to the console to make sure that
+//I did it correctly
 console.log(quotes)
 
 /***
  * `getRandomQuote` function
 ***/
 function getRandomQuote(quotes){
-  var randomQuotes = quotes[Math.floor (Math.random() * quotes.length)];  
-  return randomQuotes
+  //I used the method that grabs random numbers to grab a random number
+  //on the list of quotes within the array. I converted that random list number
+  //to the actual oject (the quote) by using bracket notation and putting the 
+  //math equation within brackets following the variable 'quotes'
+  var randomQuotePrints = quotes[Math.floor (Math.random() * quotes.length)];
+  return randomQuotePrints
 };
+//I logged the 'getRandomQuote' function to the console
+//to ensure that I was actually printing a random quote
+//every time the page was refreshed
 console.log(getRandomQuote(quotes));
 
 /***
  * `printQuote` function
 ***/
 
-
-
+//I put the variable 'randomQuotePrints' within the printQuote function
+//to ensure that I was getting a new random quote every time I clicked the button.
+function printQuote(randomQuotePrints){
+  //below here i created a variable that calls the 'getRandomQuote' function
  let randomQuote = getRandomQuote(quotes);
- var print = `<p class='quote'>${randomQuote.quote}</p>`;
-     print +=   `<p class='source'>${randomQuote.source}`;
-                if (quotes.citation){
-     print +=     `<span class='citation'>${randomQuote.citaion}</span>`
+ //below here I created variable that initiates the HTML string. I simply used html.
+ var html = `<p class='quote'>${randomQuote.quote}</p>`
+     html += `<p class='source'>${randomQuote.source}`;
+     //if the randomQuote has a citation then it will be printed,
+     //if not, then it wont be printed.
+                if (randomQuote.citation){
+                    html += `<span class='citation'>${randomQuote.citation}</span>`
                 };
-                if (quotes.year){
-     print +=     `<span class='year'>${randomQuote.year}</span>`
+                if (randomQuote.year){
+                    html += `<span class='year'>${randomQuote.year}</span>`
                 };
                 `</p>`;
-
-
- function printQuote(message){
-   document.getElementById('quote-box').innerHTML = print; 
- }
-
+                //below here I set this document equation equal to my HTML string variable
+                //which happens to be named 'html'
+   document.getElementById('quote-box').innerHTML = html; 
+}
 
 
 /***
