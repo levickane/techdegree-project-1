@@ -35,6 +35,12 @@ var quotes = [
     citation: "Second Virginia Convention",
     year: "1775",
   }
+  {
+    quote: "I'm never having hollindaise sauce ever again",
+    source: "Mike Kane",
+    citation: "Denny's in Ballard, Seattle, Washington",
+    year: "1972"
+  }
 ];
 //I loged this quotes to the console to make sure that
 //I did it correctly
